@@ -1,0 +1,15 @@
+# Core versions used in the archived experiments
+python==3.8.18
+torch==1.13.1
+numpy==1.24.3
+scipy==1.10.1
+pandas==1.5.3
+openpyxl==3.1.2
+gym==0.18.0
+networkx==3.1
+matplotlib
+visdom==0.2.4
+nvidia-ml-py==11.525.150
+
+# CUDA runtime used by the archived PyTorch build
+# CUDA 11.7; cuDNN 8.5.0

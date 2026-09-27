@@ -1,0 +1,27 @@
+{
+  "analysis": "final_environment_paired_statistics",
+  "paired_unit": "instance_x_evaluation_seed_after_averaging_training_seeds",
+  "train_seeds": [
+    20260805,
+    20260807,
+    20260808
+  ],
+  "eval_seeds": [
+    20260825,
+    20260826,
+    20260827
+  ],
+  "paired_units_per_comparison": 240,
+  "candidate_rollouts_treated_as_independent": false,
+  "training_seeds_averaged_within_paired_unit": true,
+  "comparisons": 8,
+  "metric_tests": 24,
+  "continuous_ci": "two-sided 95% Student-t CI of paired mean difference",
+  "test": "two-sided Wilcoxon signed-rank",
+  "effect_size": "paired dz = mean paired difference / SD paired difference",
+  "multiple_testing": "Holm correction across all reported metric tests",
+  "scenario_hash_groups_checked": 3,
+  "scenario_hashes_match_across_methods": true,
+  "finite": true,
+  "passed": true
+}

@@ -1,0 +1,16 @@
+ablation=reward_only
+  selected_makespan_delta=0.844099
+  selected_stability_cost_delta=0.052625
+  selected_final_budget_met_rate=0.626389
+  ablation_minus_main_makespan=2.886205
+  ablation_minus_main_stability_cost=0.177252
+  ablation_minus_main_budget_met_rate=-0.276389
+  passed=True
+ablation=zero_context
+  selected_makespan_delta=-1.833042
+  selected_stability_cost_delta=-0.109770
+  selected_final_budget_met_rate=0.900000
+  ablation_minus_main_makespan=0.209064
+  ablation_minus_main_stability_cost=0.014857
+  ablation_minus_main_budget_met_rate=-0.002778
+  passed=True

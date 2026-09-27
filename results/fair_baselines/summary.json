@@ -1,0 +1,110 @@
+{
+  "evaluation_mode": "final_environment_fair_baselines",
+  "train_seeds": [
+    20260805,
+    20260807,
+    20260808
+  ],
+  "eval_seeds": [
+    20260825,
+    20260826,
+    20260827
+  ],
+  "main_cells": 9,
+  "static_drl_cells": 9,
+  "rule_cells": 12,
+  "evaluation_cells": 30,
+  "scenario_hash_groups_checked": 3,
+  "scenario_hashes_match_across_all_methods": true,
+  "release_violations": 0,
+  "inference_protocols_are_distinct": true,
+  "by_method": {
+    "Main_Best-of-20": {
+      "method": "Main_Best-of-20",
+      "cells": 9,
+      "inference_mode": "stochastic_budget_first_best_of_20",
+      "makespan_mean": 115.03291464911565,
+      "stability_cost_mean": 1.5093396926091778,
+      "budget_met_rate": 0.9027777777777778,
+      "release_violations": 0
+    },
+    "Static_DRL_greedy": {
+      "method": "Static_DRL_greedy",
+      "cells": 9,
+      "inference_mode": "greedy_zero_shot",
+      "makespan_mean": 122.83232401741877,
+      "stability_cost_mean": 2.4078565960129104,
+      "budget_met_rate": 0.18333333333333332,
+      "release_violations": 0
+    },
+    "FIFO": {
+      "method": "FIFO",
+      "cells": 3,
+      "inference_mode": "deterministic_rule",
+      "makespan_mean": 134.94998973210653,
+      "stability_cost_mean": 3.744266365468502,
+      "budget_met_rate": 0.016666666666666666,
+      "release_violations": 0
+    },
+    "SPT": {
+      "method": "SPT",
+      "cells": 3,
+      "inference_mode": "deterministic_rule",
+      "makespan_mean": 131.40478172302247,
+      "stability_cost_mean": 2.980227373043696,
+      "budget_met_rate": 0.041666666666666664,
+      "release_violations": 0
+    },
+    "MWKR": {
+      "method": "MWKR",
+      "cells": 3,
+      "inference_mode": "deterministic_rule",
+      "makespan_mean": 118.24881118138632,
+      "stability_cost_mean": 2.8265885397791863,
+      "budget_met_rate": 0.05416666666666667,
+      "release_violations": 0
+    },
+    "MOR": {
+      "method": "MOR",
+      "cells": 3,
+      "inference_mode": "deterministic_rule",
+      "makespan_mean": 117.84220202763875,
+      "stability_cost_mean": 2.162962916493416,
+      "budget_met_rate": 0.1875,
+      "release_violations": 0
+    }
+  },
+  "main_vs_baselines": [
+    {
+      "baseline": "Static_DRL_greedy",
+      "main_minus_baseline_makespan": -7.799409368303117,
+      "main_minus_baseline_stability_cost": -0.8985169034037326,
+      "main_minus_baseline_budget_met_rate": 0.7194444444444444
+    },
+    {
+      "baseline": "FIFO",
+      "main_minus_baseline_makespan": -19.917075082990877,
+      "main_minus_baseline_stability_cost": -2.234926672859324,
+      "main_minus_baseline_budget_met_rate": 0.8861111111111111
+    },
+    {
+      "baseline": "SPT",
+      "main_minus_baseline_makespan": -16.371867073906813,
+      "main_minus_baseline_stability_cost": -1.4708876804345183,
+      "main_minus_baseline_budget_met_rate": 0.8611111111111112
+    },
+    {
+      "baseline": "MWKR",
+      "main_minus_baseline_makespan": -3.215896532270662,
+      "main_minus_baseline_stability_cost": -1.3172488471700086,
+      "main_minus_baseline_budget_met_rate": 0.8486111111111111
+    },
+    {
+      "baseline": "MOR",
+      "main_minus_baseline_makespan": -2.809287378523095,
+      "main_minus_baseline_stability_cost": -0.6536232238842383,
+      "main_minus_baseline_budget_met_rate": 0.7152777777777778
+    }
+  ],
+  "passed": true
+}

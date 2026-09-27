@@ -1,0 +1,80 @@
+{
+  "analysis": "P1_multiscale_zero_shot_v2",
+  "directory_prefix": "p1_multiscale_v2_rerun_20260816_01",
+  "data_role": "development_validation",
+  "source_training_size": "1005",
+  "target_scales": [
+    "1510",
+    "2005",
+    "2010"
+  ],
+  "train_seeds": [
+    20260805,
+    20260807,
+    20260808
+  ],
+  "eval_seeds": [
+    20260825,
+    20260826,
+    20260827
+  ],
+  "cells": 27,
+  "instances_per_cell": 80,
+  "sample_repeats": 20,
+  "scenarios_match_across_training_seeds": true,
+  "release_violations": 0,
+  "by_scale": {
+    "1510": {
+      "scale": "1510",
+      "cells": 9,
+      "initial_makespan_mean": 189.34986788431803,
+      "final_makespan_mean": 188.2329397201538,
+      "makespan_delta": -1.1169281641642252,
+      "initial_stability_cost_mean": 2.025530079007149,
+      "final_stability_cost_mean": 1.8247221655315822,
+      "stability_cost_delta": -0.20080791347556642,
+      "initial_budget_met_rate": 0.08333333333333333,
+      "final_budget_met_rate": 0.34861111111111115,
+      "initial_feasible_candidate_rate": 0.999375,
+      "final_feasible_candidate_rate": 0.9996527777777777,
+      "budget_met_rate_delta": 0.26527777777777783,
+      "makespan_improved_cells": 6,
+      "cost_improved_cells": 9
+    },
+    "2005": {
+      "scale": "2005",
+      "cells": 9,
+      "initial_makespan_mean": 218.80446058909098,
+      "final_makespan_mean": 217.5983255174425,
+      "makespan_delta": -1.2061350716484918,
+      "initial_stability_cost_mean": 3.626185379425684,
+      "final_stability_cost_mean": 2.7678774471084275,
+      "stability_cost_delta": -0.8583079323172569,
+      "initial_budget_met_rate": 0.0,
+      "final_budget_met_rate": 0.0,
+      "initial_feasible_candidate_rate": 0.995625,
+      "final_feasible_candidate_rate": 0.9961805555555555,
+      "budget_met_rate_delta": 0.0,
+      "makespan_improved_cells": 9,
+      "cost_improved_cells": 9
+    },
+    "2010": {
+      "scale": "2010",
+      "cells": 9,
+      "initial_makespan_mean": 226.20539410909018,
+      "final_makespan_mean": 225.60084902445476,
+      "makespan_delta": -0.6045450846354167,
+      "initial_stability_cost_mean": 2.9798982650041577,
+      "final_stability_cost_mean": 2.280356433822049,
+      "stability_cost_delta": -0.699541831182109,
+      "initial_budget_met_rate": 0.0,
+      "final_budget_met_rate": 0.002777777777777778,
+      "initial_feasible_candidate_rate": 0.9856250000000001,
+      "final_feasible_candidate_rate": 0.9855555555555555,
+      "budget_met_rate_delta": 0.002777777777777778,
+      "makespan_improved_cells": 6,
+      "cost_improved_cells": 9
+    }
+  },
+  "passed": true
+}

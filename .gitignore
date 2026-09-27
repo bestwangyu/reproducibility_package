@@ -1,0 +1,23 @@
+# Generated reproduction outputs and logs
+outputs/
+*.log
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# macOS/editor files
+.DS_Store
+.idea/
+.vscode/
+
+# Temporary archives and local manuscript files
+*.zip
+*.zipz
+*.pdf
+*.docx
+tmp/
+tmp_*/
