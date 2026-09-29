@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this software, cite this fixed release and acknowledge the upstream sources."
+type: software
+title: "Graph reinforcement learning for dynamic flexible job shop scheduling under composite disturbances with a schedule-stability budget: reproducibility package"
+version: 1.0.0
+repository-code: "https://github.com/bestwangyu/reproducibility_package"
+url: "https://github.com/bestwangyu/reproducibility_package/releases/tag/v1.0.0"
+license:
+  - Apache-2.0
+  - CC-BY-4.0
+abstract: >-
+  Reproducibility package for an event-driven graph reinforcement-learning workflow
+  for dynamic flexible job shop scheduling under composite disturbances with a
+  schedule-stability budget. Includes source code, inherited synthetic instances,
+  frozen checkpoints, experiment protocols, and archived result summaries.
+  Author-owned software and checkpoints are Apache-2.0; original experimental
+  results and protocol documentation are CC BY 4.0. Third-party rights are retained.
+authors:
+  - family-names: Wang
+    given-names: Yu
+    affiliation: "School of Information Engineering and Artificial Intelligence, Henan Open University, Zhengzhou 450046, China"
+  - family-names: Zhang
+    given-names: Wenqiang
+    affiliation: "School of Information Science and Engineering, Henan University of Technology, Zhengzhou 450001, China"
+  - family-names: Ding
+    given-names: Xiaoyao
+    affiliation: "School of Information Engineering and Artificial Intelligence, Henan Open University, Zhengzhou 450046, China"
+keywords:
+  - flexible job shop scheduling
+  - dynamic scheduling
+  - graph reinforcement learning
+  - machine failure
+  - schedule stability
+  - reproducibility

@@ -1,3 +1,7 @@
+# Modified from songwenas12/fjsp-drl for this study.
+# Original upstream attribution is retained in NOTICE and THIRD_PARTY_NOTICES.md.
+# Copyright (c) 2026 Yu Wang, Wenqiang Zhang, and Xiaoyao Ding for modifications.
+# SPDX-License-Identifier: Apache-2.0
 import torch
 import numpy as np
 

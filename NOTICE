@@ -1,0 +1,11 @@
+Reproducibility package for "Graph reinforcement learning for dynamic flexible job shop scheduling under composite disturbances with a schedule-stability budget"
+
+Copyright (c) 2026 Yu Wang, Wenqiang Zhang, and Xiaoyao Ding for original contributions.
+
+This project extends the fjsp-drl implementation by the authors of:
+Song W, Chen X, Li Q, Cao Z (2023). Flexible job shop scheduling via graph neural network and deep reinforcement learning. IEEE Transactions on Industrial Informatics 19(2):1600–1610. DOI: 10.1109/TII.2022.3189725.
+Upstream repository: https://github.com/songwenas12/fjsp-drl
+
+The upstream Apache License 2.0 is retained in LICENSE. Original source attributions, including references to L2D and Pytorch-Memory-Utils, are preserved. See THIRD_PARTY_NOTICES.md.
+
+The authors' dynamic-event, stability-training, evaluation, and reproducibility contributions are distinct from inherited components. Author-owned code/checkpoints are licensed under Apache-2.0; original experimental results and protocol documentation are under CC BY 4.0. See LICENSE_SCOPE.md for the scope and exclusions. This NOTICE file is informational and does not modify any license.

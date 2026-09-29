@@ -1,0 +1,133 @@
+{
+  "evaluation_mode": "P0-T_frozen_independent_test_v1",
+  "one_time_test": true,
+  "data_dir": "data_test/1005",
+  "data_manifest_sha256": "0bde21e6b1347e240ea91b096def674aea5f2f809187af83e7a3e1d9a6c438d8",
+  "development_test_hash_overlap_count": 0,
+  "protocol_sha256": "90810317027ff8e711e6ecb5860f8e58da436fdeea3f63b5a72d5468b22564f5",
+  "train_seeds": [
+    20260805,
+    20260807,
+    20260808
+  ],
+  "eval_seeds": [
+    20260825,
+    20260826,
+    20260827
+  ],
+  "instances_per_cell": 100,
+  "main_output_directories": 9,
+  "static_drl_output_directories": 9,
+  "rule_output_directories": 3,
+  "output_directories": 21,
+  "method_cells": 39,
+  "scenario_hash_groups_checked": 3,
+  "scenario_hashes_match_across_all_methods": true,
+  "release_violations": 0,
+  "inference_protocols_are_distinct": true,
+  "test_results_must_not_be_used_for_model_selection": true,
+  "by_method": {
+    "Main_Best_of_20": {
+      "method": "Main_Best_of_20",
+      "cells": 9,
+      "inference_mode": "stochastic_budget_first_best_of_20",
+      "makespan_mean": 116.23812037997774,
+      "stability_cost_mean": 1.4892226643032498,
+      "budget_met_rate": 0.9177777777777778,
+      "release_violations": 0
+    },
+    "Initial_Best_of_20": {
+      "method": "Initial_Best_of_20",
+      "cells": 9,
+      "inference_mode": "stochastic_budget_first_best_of_20",
+      "makespan_mean": 118.12134173075358,
+      "stability_cost_mean": 1.6389919032653173,
+      "budget_met_rate": 0.72,
+      "release_violations": 0
+    },
+    "Static_DRL_greedy": {
+      "method": "Static_DRL_greedy",
+      "cells": 9,
+      "inference_mode": "greedy_zero_shot",
+      "makespan_mean": 123.97439983791774,
+      "stability_cost_mean": 2.3816452165444693,
+      "budget_met_rate": 0.20888888888888887,
+      "release_violations": 0
+    },
+    "FIFO": {
+      "method": "FIFO",
+      "cells": 3,
+      "inference_mode": "deterministic_rule",
+      "makespan_mean": 137.2388829803467,
+      "stability_cost_mean": 3.722472829421361,
+      "budget_met_rate": 0.006666666666666667,
+      "release_violations": 0
+    },
+    "SPT": {
+      "method": "SPT",
+      "cells": 3,
+      "inference_mode": "deterministic_rule",
+      "makespan_mean": 133.8259992726644,
+      "stability_cost_mean": 2.8538891599575678,
+      "budget_met_rate": 0.07333333333333333,
+      "release_violations": 0
+    },
+    "MWKR": {
+      "method": "MWKR",
+      "cells": 3,
+      "inference_mode": "deterministic_rule",
+      "makespan_mean": 119.52450838724774,
+      "stability_cost_mean": 2.823001134196917,
+      "budget_met_rate": 0.05666666666666667,
+      "release_violations": 0
+    },
+    "MOR": {
+      "method": "MOR",
+      "cells": 3,
+      "inference_mode": "deterministic_rule",
+      "makespan_mean": 119.47519035339356,
+      "stability_cost_mean": 2.2219848642746607,
+      "budget_met_rate": 0.19999999999999998,
+      "release_violations": 0
+    }
+  },
+  "main_vs_baselines": [
+    {
+      "baseline": "Initial_Best_of_20",
+      "main_minus_baseline_makespan": -1.883221350775841,
+      "main_minus_baseline_stability_cost": -0.1497692389620675,
+      "main_minus_baseline_budget_met_rate": 0.19777777777777783
+    },
+    {
+      "baseline": "Static_DRL_greedy",
+      "main_minus_baseline_makespan": -7.73627945794,
+      "main_minus_baseline_stability_cost": -0.8924225522412195,
+      "main_minus_baseline_budget_met_rate": 0.7088888888888889
+    },
+    {
+      "baseline": "FIFO",
+      "main_minus_baseline_makespan": -21.000762600368944,
+      "main_minus_baseline_stability_cost": -2.233250165118111,
+      "main_minus_baseline_budget_met_rate": 0.9111111111111111
+    },
+    {
+      "baseline": "SPT",
+      "main_minus_baseline_makespan": -17.58787889268666,
+      "main_minus_baseline_stability_cost": -1.364666495654318,
+      "main_minus_baseline_budget_met_rate": 0.8444444444444444
+    },
+    {
+      "baseline": "MWKR",
+      "main_minus_baseline_makespan": -3.2863880072699914,
+      "main_minus_baseline_stability_cost": -1.333778469893667,
+      "main_minus_baseline_budget_met_rate": 0.8611111111111112
+    },
+    {
+      "baseline": "MOR",
+      "main_minus_baseline_makespan": -3.2370699734158137,
+      "main_minus_baseline_stability_cost": -0.7327621999714109,
+      "main_minus_baseline_budget_met_rate": 0.7177777777777778
+    }
+  ],
+  "passed": true
+}

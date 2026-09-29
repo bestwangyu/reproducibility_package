@@ -1,14 +1,32 @@
 # Reproducibility package
 
+## Manuscript metadata
+
+**Article title:** Graph reinforcement learning for dynamic flexible job shop scheduling under composite disturbances with a schedule-stability budget
+
+**Journal:** The International Journal of Advanced Manufacturing Technology
+
+**Authors:** Yu Wang (1, corresponding author), Wenqiang Zhang (2), Xiaoyao Ding (1)
+
+**Affiliation 1:** School of Information Engineering and Artificial Intelligence, Henan Open University, Zhengzhou 450046, China
+
+**Affiliation 2:** School of Information Science and Engineering, Henan University of Technology, Zhengzhou 450001, China
+
+**Corresponding author:** Yu Wang, affiliation 1; wangyu@haou.edu.com
+
 This package contains the source code, benchmark instances, frozen checkpoints, experiment configuration, selected result summaries, tests, and commands needed to reproduce the experiments reported in the manuscript:
 
 **Graph reinforcement learning for dynamic flexible job shop scheduling under composite disturbances with a schedule-stability budget**
 
-The package is prepared for supplementary submission and for a later GitHub or archival-repository deposit. It intentionally excludes temporary logs, editor files, local cache directories, Python bytecode, duplicate experiment runs, and machine-specific absolute paths.
+The package is prepared for supplementary submission and public release with the manuscript. It intentionally excludes temporary logs, editor files, local cache directories, Python bytecode, duplicate experiment runs, and machine-specific absolute paths.
 
 ## Public repository status
 
-The working repository is [https://github.com/bestwangyu/reproducibility_package](https://github.com/bestwangyu/reproducibility_package). No DOI has been assigned yet. The repository should remain private until the authors confirm ownership and redistribution permission for the generated instances and frozen checkpoints. A public release should add a project-specific software license and a clear data/checkpoint redistribution statement.
+Repository: https://github.com/bestwangyu/reproducibility_package
+
+Submission version: **v1.0.0**. The exact published commit is available from the tag and the release record. Use this fixed version rather than the moving main branch. The earlier computational snapshot was d6a6f72300647470c240ced9e92443c3591ee1d6; v1.0.0 adds publication metadata, explicit author-approved licenses, attribution, manifests, and the archived independent-test summary without rerunning experiments.
+
+Zenodo metadata are prepared in .zenodo.json and CITATION.cff. No Zenodo DOI has yet been assigned. A future DOI must be copied from the actual published Zenodo record, not inferred or fabricated. See protocol/ZENODO_ARCHIVING.md.
 
 ## Package scope
 
@@ -31,6 +49,8 @@ The archived runs were executed with Python 3.8.18 (CPython), PyTorch 1.13.1, CU
 ## Dataset and split
 
 The development pool contains 100 instances with 10 jobs and 5 machines. The first 20 instances are used for training; the remaining 80 are used for model development and validation. The independent holdout contains 100 non-overlapping instances with the same nominal scale. Zero-shot evaluation uses 15 jobs × 10 machines, 20 jobs × 5 machines, and 20 jobs × 10 machines.
+
+All 800 supplied FJS files match the upstream `songwenas12/fjsp-drl` instances byte for byte. They are reused synthetic instances, not newly authored datasets. The base checkpoint matches upstream `results/save_10_5.pt`. See `THIRD_PARTY_NOTICES.md` and `protocol/upstream_file_provenance.csv`.
 
 ## Random seeds
 
@@ -70,10 +90,16 @@ The wrappers accept `PYTHON_BIN`, `DEVICE`, and `CUDA_VISIBLE_DEVICES` overrides
 
 The scripts stop when an expected output is missing or inconsistent. Output directories are written under `outputs/` in the clean copy. Existing manuscript result summaries are under `results/` and are not overwritten by the reproduction commands.
 
+Despite its legacy name, `scripts/run_nominal_holdout.sh` evaluates 80 development/validation instances, not the separate 100-instance independent test. The former summaries remain in `results/main_holdout/`; the newly included, unchanged independent-test summaries are in `results/independent_test/`. This metadata update does not change executable experiment logic.
+
 ## Data and code availability
 
-At the time this package was prepared, no public repository DOI or GitHub URL had been assigned. The final manuscript should replace the corresponding availability statements with the permanent repository URL/DOI after deposit. Until then, this package can be uploaded as a supplementary file through the journal submission system.
+The fixed submission release includes the supplied instances, checkpoints, selected result files, instance/checkpoint manifests, provenance, and the archived independent-test summary. Original experimental results under results/ are CC BY 4.0; original code and author-owned checkpoints are Apache-2.0. Inherited files retain their applicable terms. See LICENSE_SCOPE.md.
 
-## License and reuse
+## License and attribution
 
-No redistribution license is asserted in this supplementary package. Before public release on GitHub or an archival repository, the authors must choose and add an appropriate license, confirm third-party dependency notices, and confirm that the generated instances and checkpoints may be redistributed. Until then, repository visibility should be set to private.
+Copyright (c) 2026 Yu Wang, Wenqiang Zhang, and Xiaoyao Ding for their original contributions.
+
+The author team selected Apache-2.0 for its original code and checkpoints, and CC BY 4.0 for its original experimental results and protocol documentation. This selection permits uses allowed by the license texts, including commercial uses; the repository's reproduction purpose imposes no extra review-only or non-commercial restriction. It does not relicense third-party material or claim ownership of upstream instances and the base checkpoint.
+
+Read LICENSE, LICENSES/CC-BY-4.0.txt, LICENSE_SCOPE.md, NOTICE, DATA_AND_CHECKPOINTS_NOTICE.md, and THIRD_PARTY_NOTICES.md. Citation metadata are in CITATION.cff. No continuing development or technical-support commitment is made.
