@@ -1,6 +1,6 @@
 Reproducibility package for "Graph reinforcement learning for dynamic flexible job shop scheduling under composite disturbances with a schedule-stability budget"
 
-Copyright (c) 2026 Yu Wang, Wenqiang Zhang, and Xiaoyao Ding for original contributions.
+Copyright (c) 2026 Yu Wang and Xiaoyao Ding for original contributions.
 
 This project extends the fjsp-drl implementation by the authors of:
 Song W, Chen X, Li Q, Cao Z (2023). Flexible job shop scheduling via graph neural network and deep reinforcement learning. IEEE Transactions on Industrial Informatics 19(2):1600–1610. DOI: 10.1109/TII.2022.3189725.

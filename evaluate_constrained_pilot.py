@@ -31,7 +31,10 @@ from train_constrained_dynamic import (
 
 def parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--source-dir", required=True)
+    source = parser.add_mutually_exclusive_group(required=True)
+    source.add_argument("--source-dir", help="Original training output directory.")
+    source.add_argument("--policy-checkpoint", help="Frozen final-policy checkpoint.")
+    parser.add_argument("--initial-checkpoint", help="Frozen conditioned initial policy; required with --policy-checkpoint.")
     parser.add_argument("--checkpoint", default="checkpoints/base/reference_save_10_5.pt")
     parser.add_argument("--data-dir", default="data_dev/1005")
     parser.add_argument("--offset", type=int, default=20)
@@ -59,7 +62,12 @@ def parse_args():
     )
     parser.add_argument("--device", choices=("auto", "cpu", "cuda"), default="auto")
     parser.add_argument("--output-dir")
-    return parser.parse_args()
+    args = parser.parse_args()
+    if args.policy_checkpoint and not args.initial_checkpoint:
+        parser.error("--policy-checkpoint requires --initial-checkpoint")
+    if args.source_dir and args.initial_checkpoint:
+        parser.error("--initial-checkpoint cannot be combined with --source-dir")
+    return args
 
 
 def load_policy(config, device, path, context_dim, context_mode="full"):
@@ -282,13 +290,20 @@ def main():
     configure_device(device)
     setup_seed(args.seed)
     config = json.loads((PROJECT_DIR / "config.json").read_text(encoding="utf-8"))
-    source_dir = Path(args.source_dir)
-    if not source_dir.is_absolute():
-        source_dir = PROJECT_DIR / source_dir
-    required = ("conditioned_initial.pt", "final_model.pt", "summary.json")
-    missing = [name for name in required if not (source_dir / name).is_file()]
+    if args.source_dir:
+        source_dir = Path(args.source_dir)
+        if not source_dir.is_absolute():
+            source_dir = PROJECT_DIR / source_dir
+        initial_path = source_dir / "conditioned_initial.pt"
+        final_path = source_dir / "final_model.pt"
+        required = (initial_path, final_path, source_dir / "summary.json")
+    else:
+        initial_path = PROJECT_DIR / args.initial_checkpoint
+        final_path = PROJECT_DIR / args.policy_checkpoint
+        required = (initial_path, final_path)
+    missing = [str(path) for path in required if not path.is_file()]
     if missing:
-        raise SystemExit("Source directory is missing: {0}".format(", ".join(missing)))
+        raise SystemExit("Missing policy inputs: {0}".format(", ".join(missing)))
 
     paths = sorted((PROJECT_DIR / args.data_dir).glob("*.fjs"))[
         args.offset : args.offset + args.instances
@@ -335,14 +350,14 @@ def main():
     initial = load_policy(
         config,
         device,
-        source_dir / "conditioned_initial.pt",
+        initial_path,
         3,
         args.stability_context_mode,
     )
     final = load_policy(
         config,
         device,
-        source_dir / "final_model.pt",
+        final_path,
         3,
         args.stability_context_mode,
     )

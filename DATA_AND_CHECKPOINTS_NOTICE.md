@@ -2,7 +2,7 @@
 
 ## Author-owned contributions
 
-The author team (Yu Wang, Wenqiang Zhang, and Xiaoyao Ding) selected the following terms on 29 September 2026:
+The author team selected the following terms on 29 September 2026. The submitting author confirmed attribution to Yu Wang and Xiaoyao Ding on 1 October 2026:
 
 - Author-created experimental CSV/JSON/text results, protocol descriptions, and manifests: CC BY 4.0, with full terms in LICENSES/CC-BY-4.0.txt.
 - Author-created trained checkpoints, to the extent of the authors' rights: Apache-2.0, with full terms in LICENSE.

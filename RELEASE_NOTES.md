@@ -1,4 +1,17 @@
-# v1.0.0 — IJAMT submission reproducibility package
+# v1.0.1 — reproduction-entry revision (unpublished)
+
+Prepared locally after the v1.0.0 Zenodo archive, DOI https://doi.org/10.5281/zenodo.23040391. That DOI identifies v1.0.0, not these changes. No new GitHub tag, Release or Zenodo version has been published for v1.0.1.
+
+- Unify development output directories as `finalenv_nominal_holdout_train...`, including the robustness prerequisite.
+- Allow explicit frozen initial/final checkpoints without fabricating a training-output directory.
+- Add development, reward-only/zero-context ablation, and 100-instance independent-test evaluation entry points, plus optional six-run ablation training.
+- Preserve and verify the original independent-test data/model lock; add existing independent-test and ablation summarizers.
+- Document complete evaluation/statistics commands and isolated smoke/dry-run modes.
+- Synchronize supplementary authorship and author-owned copyright attribution to Yu Wang and Xiaoyao Ding, as confirmed by the submitting author on 1 October 2026; retain all upstream notices.
+
+All 800 instances, 19 checkpoint files and existing result summaries remain byte-identical to v1.0.0. No formal experiment is rerun to create this revision. Local checks and small interface smoke runs are not new manuscript results.
+
+## v1.0.0 — archived submission package
 
 This fixed release accompanies the manuscript **Graph reinforcement learning for dynamic flexible job shop scheduling under composite disturbances with a schedule-stability budget**. It does not imply journal acceptance.
 
@@ -22,4 +35,4 @@ The legacy nominal_holdout wrapper evaluates the 80-instance development/validat
 - Supplementary_File_2_Reproducibility_Package.zip
 - SHA256SUMS.txt
 
-Read LICENSE_SCOPE.md, NOTICE, and THIRD_PARTY_NOTICES.md. Zenodo metadata are prepared; no DOI has yet been assigned. Reproduction support is provided as a frozen research artifact without a continuing maintenance commitment.
+Read LICENSE_SCOPE.md, NOTICE, and THIRD_PARTY_NOTICES.md. v1.0.0 is now archived at https://doi.org/10.5281/zenodo.23040391. Reproduction support is provided as a frozen research artifact without a continuing maintenance commitment.

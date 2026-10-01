@@ -6,11 +6,9 @@
 
 **Journal:** The International Journal of Advanced Manufacturing Technology
 
-**Authors:** Yu Wang (1, corresponding author), Wenqiang Zhang (2), Xiaoyao Ding (1)
+**Authors:** Yu Wang (1, corresponding author), Xiaoyao Ding (1)
 
 **Affiliation 1:** School of Information Engineering and Artificial Intelligence, Henan Open University, Zhengzhou 450046, China
-
-**Affiliation 2:** School of Information Science and Engineering, Henan University of Technology, Zhengzhou 450001, China
 
 **Corresponding author:** Yu Wang, affiliation 1; wangyu@haou.edu.com
 
@@ -24,9 +22,9 @@ The package is prepared for supplementary submission and public release with the
 
 Repository: https://github.com/bestwangyu/reproducibility_package
 
-Submission version: **v1.0.0**. The exact published commit is available from the tag and the release record. Use this fixed version rather than the moving main branch. The earlier computational snapshot was d6a6f72300647470c240ced9e92443c3591ee1d6; v1.0.0 adds publication metadata, explicit author-approved licenses, attribution, manifests, and the archived independent-test summary without rerunning experiments.
+Archived submission version: **v1.0.0**, commit `d4088f0133420dce1f23d18db9f1bf934aaaa6c2`, Zenodo DOI **https://doi.org/10.5281/zenodo.23040391** (record: https://zenodo.org/records/23040391).
 
-Zenodo metadata are prepared in .zenodo.json and CITATION.cff. No Zenodo DOI has yet been assigned. A future DOI must be copied from the actual published Zenodo record, not inferred or fabricated. See protocol/ZENODO_ARCHIVING.md.
+This working copy is the **v1.0.1 reproduction-entry revision**, prepared locally and not yet published. The DOI above identifies v1.0.0; it does not identify this revision. v1.0.1 fixes output-directory matching, adds frozen-checkpoint evaluation and independent-test/ablation entry points, and adds the original independent-test lock. Experimental assets and scientific algorithms are unchanged. Do not replace the existing v1.0.0 release or Zenodo files with this revision under the same version label.
 
 ## Package scope
 
@@ -67,30 +65,33 @@ All 800 supplied FJS files match the upstream `songwenas12/fjsp-drl` instances b
 
 ## Reproduction order
 
-Run commands from the package root.
+Run commands from the package root in the documented CPython/PyTorch environment. The tests and rollouts require PyTorch; the dry-run planner and input verifier do not.
 
 ```bash
+python verify_reproduction_inputs.py
 python -m unittest discover -s tests -v
+DRY_RUN=1 PYTHON_BIN=python bash scripts/run_independent_test.sh
 ```
 
-The following commands reproduce the main analysis stages. They can require a GPU and substantial compute time. The training and evaluation wrappers write only to `outputs/`; they do not overwrite the frozen files under `results/`.
-
-The unit suite imports PyTorch-backed environment modules. Run it inside the archived CPython/PyTorch environment; a system Python without PyTorch will execute only the dependency-free tests and report import errors for the remaining tests.
+The following sequence evaluates the archived checkpoints without retraining. Use one fresh output root for the development, baseline, ablation and paired-statistics steps:
 
 ```bash
-bash scripts/run_main_training.sh
-bash scripts/run_nominal_holdout.sh
+export PYTHON_BIN=python DEVICE=cuda CUDA_VISIBLE_DEVICES=0
+export OUTPUT_ROOT=outputs/frozen_reproduction_v1_0_1
+bash scripts/run_frozen_development.sh
 bash scripts/run_fair_baselines.sh
-bash scripts/run_robustness.sh
-bash scripts/run_multiscale_zero_shot.sh
-python analyze_finalenv_paired_statistics.py --save-dir outputs --output-dir outputs/statistics_recomputed
+bash scripts/run_ablation_evaluation.sh
+python analyze_finalenv_paired_statistics.py --save-dir "$OUTPUT_ROOT" --output-dir "$OUTPUT_ROOT/statistics_recomputed"
+bash scripts/run_independent_test.sh
 ```
 
-The wrappers accept `PYTHON_BIN`, `DEVICE`, and `CUDA_VISIBLE_DEVICES` overrides. For a low-cost smoke check, set `SMOKE=1`; this runs a small validation subset and is not a replacement for the reported full experiment.
+The development step evaluates 80 instances (offset 20); the independent-test step evaluates 100 distinct `data_test/1005/` instances (offset 0), with 9 main-policy cells, 9 static-policy cells and 3 dispatch-rule cells. It reports 39 method cells because each main-policy evaluation also records the initial policy and each rule evaluation contains four rules. The independent-test summary is generated at `$OUTPUT_ROOT/p0t_frozen_independent_test_summary/`.
 
-The scripts stop when an expected output is missing or inconsistent. Output directories are written under `outputs/` in the clean copy. Existing manuscript result summaries are under `results/` and are not overwritten by the reproduction commands.
+For training reproduction and the existing robustness/multiscale routes, see **[protocol/REPRODUCTION.md](protocol/REPRODUCTION.md)**. It specifies the full commands, ablation hyperparameters, output names, expected checks, and treatment of the historical directory prefix. `run_nominal_holdout.sh` retains its filename but now emits `finalenv_nominal_holdout_train...`, matching all downstream readers.
 
-Despite its legacy name, `scripts/run_nominal_holdout.sh` evaluates 80 development/validation instances, not the separate 100-instance independent test. The former summaries remain in `results/main_holdout/`; the newly included, unchanged independent-test summaries are in `results/independent_test/`. This metadata update does not change executable experiment logic.
+For a small interface check, `SMOKE=1` on the new frozen-evaluation wrappers uses one training seed, one evaluation seed, four instances and two candidates under `$OUTPUT_ROOT/smoke/`. No formal summary or inferential statistics are generated for smoke outputs. `DRY_RUN=1` prints the complete planned commands without running rollouts or creating output directories. Archived results under `results/` are never overwritten.
+
+The supplied `protocol/independent_test_v1.json` is the unchanged original test lock. It records historical development paths; the input verifier maps their model hashes to the portable `checkpoints/` paths. Reproduction uses the fixed settings and checkpoints, not new model selection on the test set. The protocol's original code hashes describe the historical experiment; the current source is covered separately by `protocol/file_manifest.sha256`.
 
 ## Data and code availability
 
@@ -98,7 +99,7 @@ The fixed submission release includes the supplied instances, checkpoints, selec
 
 ## License and attribution
 
-Copyright (c) 2026 Yu Wang, Wenqiang Zhang, and Xiaoyao Ding for their original contributions.
+Copyright (c) 2026 Yu Wang and Xiaoyao Ding for their original contributions.
 
 The author team selected Apache-2.0 for its original code and checkpoints, and CC BY 4.0 for its original experimental results and protocol documentation. This selection permits uses allowed by the license texts, including commercial uses; the repository's reproduction purpose imposes no extra review-only or non-commercial restriction. It does not relicense third-party material or claim ownership of upstream instances and the base checkpoint.
 

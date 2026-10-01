@@ -1,8 +1,10 @@
 # License scope
 
-Copyright (c) 2026 Yu Wang, Wenqiang Zhang, and Xiaoyao Ding for their original contributions.
+Copyright (c) 2026 Yu Wang and Xiaoyao Ding for their original contributions.
 
 On 29 September 2026, the author team confirmed authority to license its original contributions, selected the open-license option, and reported no undisclosed patent plans or institutional, funder, or collaborator restrictions on publication.
+
+On 1 October 2026, the submitting author confirmed that the supplementary authorship and copyright attribution for author-owned contributions are Yu Wang and Xiaoyao Ding. This metadata correction does not alter inherited third-party attribution or the immutable v1.0.0 archive.
 
 | Material | Applicable terms |
 | --- | --- |

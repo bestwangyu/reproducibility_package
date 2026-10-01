@@ -22,7 +22,7 @@ for TRAIN_SEED in 20260805 20260807 20260808; do
 done
 for TRAIN_SEED in 20260805 20260807 20260808; do
   for EVAL_SEED in 20260825 20260826 20260827; do
-    [[ -f "$OUTPUT_ROOT/nominal_train${TRAIN_SEED}_eval_${EVAL_SEED}/summary.json" ]] || {
+    [[ -f "$OUTPUT_ROOT/finalenv_nominal_holdout_train${TRAIN_SEED}_eval_${EVAL_SEED}/summary.json" ]] || {
       echo "run scripts/run_nominal_holdout.sh before robustness evaluation" >&2; exit 1;
     }
   done

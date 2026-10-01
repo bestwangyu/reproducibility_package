@@ -1,10 +1,10 @@
 cff-version: 1.2.0
-message: "If you use this software, cite this fixed release and acknowledge the upstream sources."
+message: "This is an unpublished v1.0.1 revision. The archived v1.0.0 is doi:10.5281/zenodo.23040391; acknowledge upstream sources."
 type: software
 title: "Graph reinforcement learning for dynamic flexible job shop scheduling under composite disturbances with a schedule-stability budget: reproducibility package"
-version: 1.0.0
+version: 1.0.1
 repository-code: "https://github.com/bestwangyu/reproducibility_package"
-url: "https://github.com/bestwangyu/reproducibility_package/releases/tag/v1.0.0"
+url: "https://github.com/bestwangyu/reproducibility_package"
 license:
   - Apache-2.0
   - CC-BY-4.0
@@ -19,9 +19,6 @@ authors:
   - family-names: Wang
     given-names: Yu
     affiliation: "School of Information Engineering and Artificial Intelligence, Henan Open University, Zhengzhou 450046, China"
-  - family-names: Zhang
-    given-names: Wenqiang
-    affiliation: "School of Information Science and Engineering, Henan University of Technology, Zhengzhou 450001, China"
   - family-names: Ding
     given-names: Xiaoyao
     affiliation: "School of Information Engineering and Artificial Intelligence, Henan Open University, Zhengzhou 450046, China"

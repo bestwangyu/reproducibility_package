@@ -17,7 +17,7 @@ for TRAIN_SEED in 20260805 20260807 20260808; do
   SOURCE_DIR="$OUTPUT_ROOT/main_seed_${TRAIN_SEED}"
   [[ -f "$SOURCE_DIR/final_model.pt" ]] || { echo "missing source checkpoint: $SOURCE_DIR/final_model.pt" >&2; exit 1; }
   for EVAL_SEED in 20260825 20260826 20260827; do
-    OUTPUT_DIR="$OUTPUT_ROOT/nominal_train${TRAIN_SEED}_eval_${EVAL_SEED}"
+    OUTPUT_DIR="$OUTPUT_ROOT/finalenv_nominal_holdout_train${TRAIN_SEED}_eval_${EVAL_SEED}"
     LOG_FILE="$OUTPUT_ROOT/logs/nominal_train${TRAIN_SEED}_eval_${EVAL_SEED}.log"
     if [[ -f "$OUTPUT_DIR/summary.json" ]] && grep -q '"passed": true' "$OUTPUT_DIR/summary.json"; then
       echo "skip completed evaluation: $OUTPUT_DIR"
@@ -68,6 +68,6 @@ if [[ -e "$SUMMARY_DIR" ]]; then
 fi
 "$PYTHON_BIN" -u summarize_finalenv_main_holdout.py \
   --save-dir "$OUTPUT_ROOT" \
-  --directory-prefix nominal \
+  --directory-prefix finalenv_nominal_holdout \
   --output-dir "$SUMMARY_DIR"
 echo "PASS nominal holdout reproduction: $SUMMARY_DIR"

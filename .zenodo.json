@@ -1,16 +1,12 @@
 {
   "title": "Graph reinforcement learning for dynamic flexible job shop scheduling under composite disturbances with a schedule-stability budget: reproducibility package",
   "upload_type": "software",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "<p>Reproducibility package accompanying the manuscript \"Graph reinforcement learning for dynamic flexible job shop scheduling under composite disturbances with a schedule-stability budget\", prepared for The International Journal of Advanced Manufacturing Technology. This record describes software and supporting research assets, not an accepted or published journal article.</p><p>The package includes event-driven scheduling code, reused synthetic FJSP instances, frozen checkpoints, protocols, and archived experimental summaries. Author-owned code and checkpoints are Apache-2.0; original experimental results and protocol documentation are CC BY 4.0. Inherited material retains its applicable terms. See LICENSE_SCOPE.md and THIRD_PARTY_NOTICES.md; the primary software-license metadata does not replace asset-specific terms.</p><p>Funding: Science and Technology Research Project of Henan Province, Grant No. 252102211058.</p>",
   "creators": [
     {
       "name": "Wang, Yu",
       "affiliation": "School of Information Engineering and Artificial Intelligence, Henan Open University, Zhengzhou 450046, China"
-    },
-    {
-      "name": "Zhang, Wenqiang",
-      "affiliation": "School of Information Science and Engineering, Henan University of Technology, Zhengzhou 450001, China"
     },
     {
       "name": "Ding, Xiaoyao",
@@ -29,10 +25,10 @@
   ],
   "related_identifiers": [
     {
-      "identifier": "https://github.com/bestwangyu/reproducibility_package/releases/tag/v1.0.0",
-      "relation": "isSupplementTo",
+      "identifier": "10.5281/zenodo.23040391",
+      "relation": "isNewVersionOf",
       "resource_type": "software",
-      "scheme": "url"
+      "scheme": "doi"
     }
   ]
 }
